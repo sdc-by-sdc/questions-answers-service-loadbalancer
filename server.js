@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const axios = require('axios');
+const path = require('path');
 const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -13,6 +14,10 @@ require('dotenv').config();
 const servers = process.env.SERVERS.split(',');
 console.log(servers);
 let current = 0;
+
+app.get('/loaderio-697c9500259995a01b46638001c2434b/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'loader.txt'));
+});
 
 app.get('/*', (req, res) => {
   console.log('current server: ', servers[current]);
