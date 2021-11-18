@@ -15,21 +15,21 @@ const servers = process.env.SERVERS.split(',');
 console.log(servers);
 let current = 0;
 
-app.get('/loaderio-697c9500259995a01b46638001c2434b/', (req, res) => {
+app.get('/loaderio-697c9500259995a01b46638001c2434b.txt', (req, res) => {
   res.sendFile(path.join(__dirname, 'loader.txt'));
 });
 
 app.get('/qa/*', (req, res) => {
-  console.log('current server: ', servers[current]);
-  console.log('req.url: ', req.url);
-  console.log('req.query: ', req.query);
+  // console.log('current server: ', servers[current]);
+  // console.log('req.url: ', req.url);
+  // console.log('req.query: ', req.query);
   const url = req.url;
 
   axios.get(servers[current] + url)
     .then(results => {
       console.log('success!');
       current = (current + 1) % servers.length;
-      console.log(current);
+      // console.log(current);
       res.status(200).send(results.data);
     })
     .catch(err => {
@@ -39,15 +39,15 @@ app.get('/qa/*', (req, res) => {
 });
 
 app.post('/qa/*', (req, res) => {
-  console.log('current server: ', servers[current]);
-  console.log('req.url: ', req.url);
-  console.log('req.body: ', req.body);
+  // console.log('current server: ', servers[current]);
+  // console.log('req.url: ', req.url);
+  // console.log('req.body: ', req.body);
 
   axios.post(servers[current] + req.url, req.body)
     .then(results => {
       console.log('success post');
       current = (current + 1) % servers.length;
-      console.log(current);
+      // console.log(current);
       res.status(201).send(results.data);
     })
     .catch(err => {
@@ -56,14 +56,14 @@ app.post('/qa/*', (req, res) => {
 });
 
 app.put('/qa/*', (req, res) => {
-  console.log('current server: ', servers[current]);
-  console.log('req.url: ', req.url);
+  // console.log('current server: ', servers[current]);
+  // console.log('req.url: ', req.url);
 
   axios.put(servers[current] + req.url)
     .then(results => {
       console.log('success put');
       current = (current + 1) % servers.length;
-      console.log(current);
+      // console.log(current);
       res.status(200).send(results.data);
     })
     .catch(err => {
