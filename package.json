@@ -1,0 +1,25 @@
+{
+  "name": "questions-answers-service-loadbalancer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sdc-by-sdc/questions-answers-service-loadbalancer.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sdc-by-sdc/questions-answers-service-loadbalancer/issues"
+  },
+  "homepage": "https://github.com/sdc-by-sdc/questions-answers-service-loadbalancer#readme",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1"
+  }
+}
