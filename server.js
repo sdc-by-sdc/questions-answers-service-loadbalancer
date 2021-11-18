@@ -19,7 +19,7 @@ app.get('/loaderio-697c9500259995a01b46638001c2434b/', (req, res) => {
   res.sendFile(path.join(__dirname, 'loader.txt'));
 });
 
-app.get('/*', (req, res) => {
+app.get('/qa/*', (req, res) => {
   console.log('current server: ', servers[current]);
   console.log('req.url: ', req.url);
   console.log('req.query: ', req.query);
@@ -38,7 +38,7 @@ app.get('/*', (req, res) => {
     });
 });
 
-app.post('/*', (req, res) => {
+app.post('/qa/*', (req, res) => {
   console.log('current server: ', servers[current]);
   console.log('req.url: ', req.url);
   console.log('req.body: ', req.body);
@@ -55,7 +55,7 @@ app.post('/*', (req, res) => {
     });
 });
 
-app.put('/*', (req, res) => {
+app.put('/qa/*', (req, res) => {
   console.log('current server: ', servers[current]);
   console.log('req.url: ', req.url);
 
